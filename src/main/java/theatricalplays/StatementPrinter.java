@@ -2,11 +2,10 @@ package theatricalplays;
 
 import java.text.NumberFormat;
 import java.util.Locale;
-import java.util.Map;
 
 public class StatementPrinter {
 
-  public String printTXT(Invoice invoice, Map<String, Play> plays) {
+  public String printTXT(Invoice invoice) {
     int totalAmount = 0;
     int volumeCredits = 0;
     String result = String.format("Statement for %s\n", invoice.customer);
@@ -14,7 +13,7 @@ public class StatementPrinter {
     NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
 
     for (Performance perf : invoice.performances) {
-      Play play = plays.get(perf.playID);
+      Play play = perf.play;
       int thisAmount = 0;
 
       switch (play.type) {
