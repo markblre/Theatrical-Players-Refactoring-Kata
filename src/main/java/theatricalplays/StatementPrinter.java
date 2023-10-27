@@ -13,34 +13,11 @@ public class StatementPrinter {
     NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
 
     for (Performance perf : invoice.performances) {
-      Play play = perf.play;
-      int thisAmount = 0;
-
-      switch (play.type) {
-        case "tragedy":
-          thisAmount = 40000;
-          if (perf.audience > 30) {
-            thisAmount += 1000 * (perf.audience - 30);
-          }
-          break;
-        case "comedy":
-          thisAmount = 30000;
-          if (perf.audience > 20) {
-            thisAmount += 10000 + 500 * (perf.audience - 20);
-          }
-          thisAmount += 300 * perf.audience;
-          break;
-        default:
-          throw new Error("unknown type: ${play.type}");
-      }
-
-      // add volume credits
-      volumeCredits += Math.max(perf.audience - 30, 0);
-      // add extra credit for every ten comedy attendees
-      if ("comedy".equals(play.type)) volumeCredits += Math.floor(perf.audience / 5);
+      int thisAmount = perf.getAmount();
+      volumeCredits += perf.getVolumeCredits();
 
       // print line for this order
-      result += String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount / 100), perf.audience);
+      result += String.format("  %s: %s (%s seats)\n", perf.play.name, frmt.format(thisAmount / 100), perf.audience);
       totalAmount += thisAmount;
     }
     result += String.format("Amount owed is %s\n", frmt.format(totalAmount / 100));
