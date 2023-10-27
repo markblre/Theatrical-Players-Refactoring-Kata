@@ -11,4 +11,12 @@ public class Invoice {
     this.customer = customer;
     this.performances = performances;
   }
+
+  public int getTotalAmount() {
+    int totalAmount = 0;
+    for (Performance perf : this.performances) {
+      totalAmount += perf.getAmount();
+    }
+    return totalAmount;
+  }
 }
