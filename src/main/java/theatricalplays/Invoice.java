@@ -19,4 +19,12 @@ public class Invoice {
     }
     return totalAmount;
   }
+
+  public int getTotalVolumeCredits() {
+    int totalVolumeCredits = 0;
+    for (Performance perf : this.performances) {
+      totalVolumeCredits += perf.getVolumeCredits();
+    }
+    return totalVolumeCredits;
+  }
 }
