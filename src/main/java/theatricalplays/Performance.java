@@ -10,11 +10,21 @@ public class Performance {
     this.audience = audience;
   }
 
-  public float getAmount() {
+  public PerformanceData getData() {
+    PerformanceData data = new PerformanceData();
+    data.playName = this.play.name;
+    data.playType = this.play.getClass().getSimpleName();
+    data.audience = this.audience;
+    data.amount = this.getAmount();
+    data.volumeCredits = this.getVolumeCredits();
+    return data;
+  }
+
+  private float getAmount() {
     return this.play.calculateAmount(this.audience);
   }
 
-  public int getVolumeCredits() {
+  private int getVolumeCredits() {
     return this.play.calculateVolumeCredits(this.audience);
   }
 }

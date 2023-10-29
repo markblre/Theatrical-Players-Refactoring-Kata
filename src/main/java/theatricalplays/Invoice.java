@@ -12,19 +12,19 @@ public class Invoice {
     this.performances = performances;
   }
 
-  public float getTotalAmount() {
-    float totalAmount = 0;
-    for (Performance perf : this.performances) {
-      totalAmount += perf.getAmount();
+  public InvoiceData getData() {
+    InvoiceData invoiceData = new InvoiceData();
+    invoiceData.customerName = this.customer.name;
+    invoiceData.performances = new PerformanceData[this.performances.size()];
+    for (int i = 0; i < this.performances.size(); i++) {
+      invoiceData.performances[i] = this.performances.get(i).getData();
     }
-    return totalAmount;
-  }
-
-  public int getTotalVolumeCredits() {
-    int totalVolumeCredits = 0;
-    for (Performance perf : this.performances) {
-      totalVolumeCredits += perf.getVolumeCredits();
+    invoiceData.totalAmount = 0;
+    invoiceData.totalVolumeCredits = 0;
+    for (PerformanceData perf : invoiceData.performances) {
+      invoiceData.totalAmount += perf.amount;
+      invoiceData.totalVolumeCredits += perf.volumeCredits;
     }
-    return totalVolumeCredits;
+    return invoiceData;
   }
 }
