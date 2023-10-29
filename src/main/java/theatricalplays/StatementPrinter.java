@@ -6,7 +6,7 @@ import java.util.Locale;
 public class StatementPrinter {
 
   public String printTXT(Invoice invoice) {
-    String result = String.format("Statement for %s\n", invoice.customer);
+    String result = String.format("Statement for %s\n", invoice.customer.name);
 
     NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
 
