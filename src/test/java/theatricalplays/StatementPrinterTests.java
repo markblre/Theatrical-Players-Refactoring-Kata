@@ -12,9 +12,9 @@ public class StatementPrinterTests {
   void exampleStatement() {
     Customer BigCo = new Customer("BigCo");
 
-    Play Hamlet = new Play("Hamlet", "tragedy");
-    Play AsYouLikeIt = new Play("As You Like It", "comedy");
-    Play Othello = new Play("Othello", "tragedy");
+    Play Hamlet = new Tragedy("Hamlet");
+    Play AsYouLikeIt = new Comedy("As You Like It");
+    Play Othello = new Tragedy("Othello");
 
     Invoice invoice = new Invoice(BigCo, List.of(
             new Performance(Hamlet, 55),
