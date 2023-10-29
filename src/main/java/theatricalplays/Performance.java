@@ -10,7 +10,7 @@ public class Performance {
     this.audience = audience;
   }
 
-  public int getAmount() {
+  public float getAmount() {
     return this.play.calculateAmount(this.audience);
   }
 

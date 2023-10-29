@@ -7,12 +7,12 @@ public class Comedy extends Play {
   }
 
   @Override
-  public int calculateAmount(int audience) {
-    int amount = 30000;
+  public float calculateAmount(int audience) {
+    int amount = 300;
     if (audience > 20) {
-      amount += 10000 + 500 * (audience - 20);
+      amount += 100 + 5 * (audience - 20);
     }
-    amount += 300 * audience;
+    amount += 3 * audience;
     return amount;
   }
 

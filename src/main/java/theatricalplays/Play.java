@@ -8,6 +8,6 @@ abstract public class Play {
     this.name = name;
   }
 
-  abstract public int calculateAmount(int audience);
+  abstract public float calculateAmount(int audience);
   abstract public int calculateVolumeCredits(int audience);
 }

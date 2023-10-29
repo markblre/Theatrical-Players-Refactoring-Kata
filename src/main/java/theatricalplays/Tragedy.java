@@ -7,10 +7,10 @@ public class Tragedy extends Play {
   }
 
   @Override
-  public int calculateAmount(int audience) {
-    int amount = 40000;
+  public float calculateAmount(int audience) {
+    int amount = 400;
     if (audience > 30) {
-      amount += 1000 * (audience - 30);
+      amount += 10 * (audience - 30);
     }
     return amount;
   }

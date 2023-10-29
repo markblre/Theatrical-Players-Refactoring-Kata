@@ -12,8 +12,8 @@ public class Invoice {
     this.performances = performances;
   }
 
-  public int getTotalAmount() {
-    int totalAmount = 0;
+  public float getTotalAmount() {
+    float totalAmount = 0;
     for (Performance perf : this.performances) {
       totalAmount += perf.getAmount();
     }
