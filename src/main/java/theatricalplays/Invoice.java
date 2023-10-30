@@ -4,6 +4,9 @@ import java.util.List;
 
 public class Invoice {
 
+  public static int DISCOUNT_LIMIT= 150;
+  public static float DISCOUNT = 15f;
+
   public Customer customer;
   public List<Performance> performances;
 
@@ -13,9 +16,9 @@ public class Invoice {
   }
 
   private float calculateDiscount() {
-    if (this.customer.credits >= 150) {
-      this.customer.credits -= 150;
-      return 15f;
+    if (this.customer.credits >= DISCOUNT_LIMIT) {
+      this.customer.credits -= DISCOUNT_LIMIT;
+      return DISCOUNT;
     } else {
       return 0f;
     }
