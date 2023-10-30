@@ -5,8 +5,7 @@ import java.util.Locale;
 
 public class StatementPrinter {
 
-  public String printTXT(Invoice invoice) {
-    InvoiceData invoiceData = invoice.getData();
+  public String printTXT(InvoiceData invoiceData) {
 
     NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
 
@@ -27,8 +26,7 @@ public class StatementPrinter {
     return result.toString();
   }
 
-  public String printHTML(Invoice invoice) {
-    InvoiceData invoiceData = invoice.getData();
+  public String printHTML(InvoiceData invoiceData) {
 
     NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
 
